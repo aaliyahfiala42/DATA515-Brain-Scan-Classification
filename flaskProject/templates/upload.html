@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image for Tumor Detection</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/style/css/bootstrap.css">
+
+
+<style>
+h2 {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+h3 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 18px;
+  color: #707070;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topnav">
+	<a class="active" href="/">Home</a>
+	<a href="/data">Data Description</a>
+	<a href="/about">About This Project</a>
+</div>
+
+
+<h1 align="center"> Brain Tumor Detection </h1>
+
+<h3 align="center">Select a file (.jpg) to upload and click the submit for prediction result</h3>
+
+
+
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+
+	{% for message in messages %}
+	<h2 align="center">{{ message }}</h2>
+		{% endfor %}
+
+		{% endif %}
+		{% endwith %}
+
+
+	{% if filename %}
+	<div align="center">
+		<img src="{{ url_for('display_image', filename=filename) }}" width="300px">
+	</div>
+
+	{% endif %}
+
+	<form method="post" action="/" enctype="multipart/form-data" align="center">
+		<dl>
+			<p>
+				<input type="file" name="file" autocomplete="off" required>
+			</p>
+		</dl>
+		<p>
+			<input type="submit" value="Submit">
+		</p>
+	</form>
+
+</body>
+</html>
+
+
+
