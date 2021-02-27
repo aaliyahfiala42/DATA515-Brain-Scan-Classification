@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/style/css/bootstrap.css">
+    <!-- Style CSS -->
+	<link rel="stylesheet" href="../static/style/css/style.css">
+
+<style>
+h2 {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+h3 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 18px;
+  color: #707070;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="topnav">
+	<a href="/">Home</a>
+	<a href="/data">Data Description</a>
+	<a href="/about">ML Model</a>
+	<a class="active" href="/future">Future Endeavors</a>
+	<a href="/team">About Our Team</a>
+</div>
+
+<div class="content" align="center">
+	<p>This project was originally plan on using 3D MRI scan (.mha) file to build a CNN model that is able to make, however, due to the lack of GPU, we were not able to perform the heavy computing reuired for a 2D CNN model.
+We tried other methods to take slices from the 3D MRI scan and train a model on the selected slices. But one issue with this approach is that we very likely miss the tumor by only examing the selected slices.
+For example, if we selected the middle slice of the scan, the tumor might locate on the top or the bottom of the brain, we would made a wrongly classification.</p>
+
+	<img src="../static/img/MRI.gif" width="30%">
+</div>
+
+<div class = "footer">
+  <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
+  <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
+</div>
+
+</body>
+</html>

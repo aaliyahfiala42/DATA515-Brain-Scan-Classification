@@ -75,6 +75,28 @@ def about_page():
         return redirect(url_for('upload_form'))
     return render_template('about.html')
 
+@app.route('/future', methods=['GET', 'POST'])
+def future_page():
+    if request.method == 'POST':
+            # do stuff when the form is submitted
+
+            # redirect to end the POST handling
+            # the redirect can be to the same route or somewhere else
+        return redirect(url_for('upload_form'))
+    return render_template('future.html')
+
+
+@app.route('/team', methods=['GET', 'POST'])
+def team_page():
+    if request.method == 'POST':
+            # do stuff when the form is submitted
+
+            # redirect to end the POST handling
+            # the redirect can be to the same route or somewhere else
+        return redirect(url_for('upload_form'))
+    return render_template('team.html')
+
+
 
 
 
