@@ -1,3 +1,4 @@
+<!-- Home Page/Upload picture for prediction-->
 <!doctype html>
 <html lang="en">
 
@@ -34,7 +35,7 @@ p {
 </head>
 
 <body>
-
+<!-- Navigation Bar -->
 <div class="topnav">
 	<a class="active" href="/">Home</a>
 	<a href="/data">Data Description</a>
@@ -46,9 +47,8 @@ p {
 
 <h1 align="center"> Brain Tumor Detection </h1>
 
+<!-- Main Content-->
 <h3 align="center">Select a file (.jpg) to upload and click the submit for prediction result</h3>
-
-
 
 	{% with messages = get_flashed_messages() %}
 	{% if messages %}
@@ -59,7 +59,6 @@ p {
 
 		{% endif %}
 		{% endwith %}
-
 
 	{% if filename %}
 	<div align="center">
@@ -79,6 +78,8 @@ p {
 		</p>
 	</form>
 
+
+<!-- Footer -->
 <div class = "footer">
   <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
   <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>

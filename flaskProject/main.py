@@ -9,15 +9,18 @@ from prediction import *
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
+# Set the requirement for valid upload files
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+# Create the route for homepage upload.html
 @app.route('/')
 def upload_form():
     return render_template('upload.html')
 
 
+# Take User uploaded images and perform prediction
 @app.route('/', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
@@ -30,8 +33,6 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        # print('upload_image filename: ' + filename)
-        size = str(get_img_size(filename))
         pred = prediction(filename)
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
@@ -40,24 +41,19 @@ def upload_image():
         return redirect(request.url)
 
 
+# Create the route for the page after the prediction is made and show the images uploaded
 @app.route('/display/<filename>')
 def display_image(filename):
     # print('display_image filename: ' + filename)
     size = 10
-    return redirect(url_for('static', filename='uploads/' + filename, code=301 ))
+    return redirect(url_for('static', filename='uploads/' + filename, code=301))
 
 
-def get_img_size(filename):
-    path = "static/uploads/"+filename
-    im = cv2.imread(path)
-    im_size = im.shape
-    return im_size
-
+# Create the route for Data description page data.html
 @app.route('/data', methods=['GET', 'POST'])
 def data_page():
     if request.method == 'POST':
         # do stuff when the form is submitted
-
         # redirect to end the POST handling
         # the redirect can be to the same route or somewhere else
         return redirect(url_for('upload_form'))
@@ -65,45 +61,45 @@ def data_page():
     # show the form, it wasn't submitted
     return render_template('data.html')
 
+
+# Create the route for the model page about.html
 @app.route('/about', methods=['GET', 'POST'])
 def about_page():
     if request.method == 'POST':
-            # do stuff when the form is submitted
-
-            # redirect to end the POST handling
-            # the redirect can be to the same route or somewhere else
+        # do stuff when the form is submitted
+        # redirect to end the POST handling
+        # the redirect can be to the same route or somewhere else
         return redirect(url_for('upload_form'))
     return render_template('about.html')
 
+
+# Create the route for the future endeavours page future.html
 @app.route('/future', methods=['GET', 'POST'])
 def future_page():
     if request.method == 'POST':
-            # do stuff when the form is submitted
-
-            # redirect to end the POST handling
-            # the redirect can be to the same route or somewhere else
+        # do stuff when the form is submitted
+        # redirect to end the POST handling
+        # the redirect can be to the same route or somewhere else
         return redirect(url_for('upload_form'))
     return render_template('future.html')
 
 
+# Create the route for about the team page team.html
 @app.route('/team', methods=['GET', 'POST'])
 def team_page():
     if request.method == 'POST':
-            # do stuff when the form is submitted
+        # do stuff when the form is submitted
 
-            # redirect to end the POST handling
-            # the redirect can be to the same route or somewhere else
+        # redirect to end the POST handling
+        # the redirect can be to the same route or somewhere else
         return redirect(url_for('upload_form'))
     return render_template('team.html')
-
-
-
 
 
 if __name__ == "__main__":
     app.run()
 
 '''
-Citing the sources of code: 
+Citing the references sources of code: 
 https://roytuts.com/upload-and-display-image-using-python-flask/
 '''

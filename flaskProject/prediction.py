@@ -3,7 +3,7 @@ from keras.preprocessing import image
 import numpy as np
 
 
-
+# Take the uploaded images and perform prediction (model is loaded as a .h5 file)
 def prediction(path):
     model = tf.keras.models.load_model('E:\Winter 2021\DATA 515\model\my_model.h5')
     test_img = image.load_img("static\\uploads\\" + path, target_size=(150, 150))
