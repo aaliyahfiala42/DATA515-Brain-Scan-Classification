@@ -22,13 +22,13 @@ Accuracy:
 <img src=https://user-images.githubusercontent.com/73403238/109405511-3338a300-7926-11eb-997e-a63ba93bf3b6.png width="300"/>
 
 Our model is trained on a data set from Kaggel Brain MRI Images for Brain Tumor Detection. The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no". 
-
+<br />
 MRI Scan without a Tumor
-<img src = "http://aaliyahhanni.pythonanywhere.com/static/img/no.jpeg" alt = "No_tumor" style = "width:300px;">
-
+<img src = "http://aaliyahhanni.pythonanywhere.com/static/img/no.jpeg" alt = "No_tumor" width="300"/>
+<br />
 MRI Scan with a Tumor (notated with arrow)
-<img src = "http://aaliyahhanni.pythonanywhere.com/static/img/yes.jpg" alt = "Yes_tumor" style = "width:300px;">
-
+<img src = "http://aaliyahhanni.pythonanywhere.com/static/img/yes.jpg" alt = "Yes_tumor" width="300"/>
+<br />
 
 ### Limitations
 Our initial goal was to build a model that takes in 3D MRI images, that give a complete view of the Brain, but were unable to accomplish this due to limited access to processing power. An example of a 3D MRI scan is shown below. 
