@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+## Brain Scan Classification
+### DATA 515 Final Project
+Location: http://aaliyahhanni.pythonanywhere.com/
 
-You can use the [editor on GitHub](https://github.com/aaliyahfiala42/DATA-515-Brain-Scan/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+The Brain Scan Classification is a machine learning project that classifies 2D brain scan images as tumorous or not. Our website allows users to upload their own (.jpg) photos into the model, and get a prediciton result. 
+![image](https://user-images.githubusercontent.com/73403238/109405348-9590a400-7924-11eb-8eec-64639a7b33a1.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### How It Works
+1. Navigate to http://aaliyahhanni.pythonanywhere.com/
+2. Click the 'Choose File' button, and select the 2D .jpg brain scan from your file explorer
+3. Click the 'Submit' button, and wait for the results to display at the top of the page
 
-### Markdown
+### About the Model
+For this project, we are using a 2D Convolution Neural Network with one hidden layer to classify 2D MRI brain scan images as tumorous our not. It is built with Tensorflow and Keras. The input images (data set is described in the "Data Description" tab) are 240x240x1 the 1 indicates 1 channel and converted into grayscale. The output is just a 1D array the length of the samples, for exmaple if input 100 images are inputed, the model would output 100 predictions of 1 or 0 for whether or not there is a tumor.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[Include Snippets of Code & More General Details]
 
-```markdown
-Syntax highlighted code block
+Number of Epoch:
+Learning Rate:
+Accuracy:
 
-# Header 1
-## Header 2
-### Header 3
+![image](https://user-images.githubusercontent.com/73403238/109405511-3338a300-7926-11eb-997e-a63ba93bf3b6.png)
 
-- Bulleted
-- List
+Our model is trained on a data set from Kaggel Brain MRI Images for Brain Tumor Detection. The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no". An example of an MRI scan without a tumor is shown on the left and an example of scan with tumor is shown on the right, where the tumor is pointed out by the arrow.
+![image](https://user-images.githubusercontent.com/73403238/109405522-43508280-7926-11eb-8666-eec113a875a3.png) ![image](https://user-images.githubusercontent.com/73403238/109405525-46e40980-7926-11eb-853d-50c37c535b1c.png)
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+### Limitations
+Our initial goal was to build a model that takes in 3D MRI images, that give a complete view of the Brain, but were unable to accomplish this due to limited access to processing power. An example of a 3D MRI scan is shown below. 
+![image](https://user-images.githubusercontent.com/73403238/109405543-78f56b80-7926-11eb-9e1a-4dd4ec1644d7.png)
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aaliyahfiala42/DATA-515-Brain-Scan/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Authors 
+Aaliyah Fiala, Jordan Fields, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
