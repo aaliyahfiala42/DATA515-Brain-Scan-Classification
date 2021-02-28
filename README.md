@@ -32,11 +32,13 @@ MRI Scan with a Tumor (notated with arrow)
 <img src = "http://aaliyahhanni.pythonanywhere.com/static/img/yes.jpg" alt = "Yes_tumor" width="300"/>
 <br />
 
+## How to Use the Model (from Github)
+[need to add more details, step-by-step guide of how to do this]
+
 ## Limitations
 Our initial goal was to build a model that takes in 3D MRI images, that give a complete view of the Brain, but were unable to accomplish this due to limited access to processing power. An example of a 3D MRI scan is shown below. 
 <br />
 <img src=http://aaliyahhanni.pythonanywhere.com/static/img/MRI.gif  width="300"/>
-
 
 ## Authors 
 Aaliyah Fiala, Jordan Fields, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
