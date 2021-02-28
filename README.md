@@ -35,7 +35,7 @@ MRI Scan with a Tumor (notated with arrow)
 ### Limitations
 Our initial goal was to build a model that takes in 3D MRI images, that give a complete view of the Brain, but were unable to accomplish this due to limited access to processing power. An example of a 3D MRI scan is shown below. 
 <br />
-<img src=https://user-images.githubusercontent.com/73403238/109405543-78f56b80-7926-11eb-9e1a-4dd4ec1644d7.png  width="300"/>
+<img src=http://aaliyahhanni.pythonanywhere.com/static/img/MRI.gif  width="300"/>
 
 
 ### Authors 
