@@ -32,7 +32,7 @@ MRI Scan with a Tumor (notated with arrow)
 <img src = "http://aaliyahhanni.pythonanywhere.com/static/img/yes.jpg" alt = "Yes_tumor" width="300"/>
 <br />
 
-## How to Use the Model (from Github)
+## How to Use the Model (from GitHub)
 [need to add more details, step-by-step guide of how to install and run on local machine]
 
 ## Limitations
