@@ -19,7 +19,7 @@ Number of Epoch:
 Learning Rate:
 Accuracy:
 
-![image](https://user-images.githubusercontent.com/73403238/109405511-3338a300-7926-11eb-997e-a63ba93bf3b6.png =600x)
+<img src=https://user-images.githubusercontent.com/73403238/109405511-3338a300-7926-11eb-997e-a63ba93bf3b6.png width="300"/>
 
 Our model is trained on a data set from Kaggel Brain MRI Images for Brain Tumor Detection. The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no". An example of an MRI scan without a tumor is shown on the left and an example of scan with tumor is shown on the right, where the tumor is pointed out by the arrow.
 ![image](https://user-images.githubusercontent.com/73403238/109405522-43508280-7926-11eb-8666-eec113a875a3.png =250x) ![image](https://user-images.githubusercontent.com/73403238/109405525-46e40980-7926-11eb-853d-50c37c535b1c.png =250x)
