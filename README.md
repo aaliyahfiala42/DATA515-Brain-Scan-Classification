@@ -22,12 +22,12 @@ Accuracy:
 <img src=https://user-images.githubusercontent.com/73403238/109405511-3338a300-7926-11eb-997e-a63ba93bf3b6.png width="300"/>
 
 Our model is trained on a data set from Kaggel Brain MRI Images for Brain Tumor Detection. The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no". An example of an MRI scan without a tumor is shown on the left and an example of scan with tumor is shown on the right, where the tumor is pointed out by the arrow.
-![image](https://user-images.githubusercontent.com/73403238/109405522-43508280-7926-11eb-8666-eec113a875a3.png =250x) ![image](https://user-images.githubusercontent.com/73403238/109405525-46e40980-7926-11eb-853d-50c37c535b1c.png =250x)
+<img src=https://user-images.githubusercontent.com/73403238/109405522-43508280-7926-11eb-8666-eec113a875a3.png width="300"/>    <img src=https://user-images.githubusercontent.com/73403238/109405525-46e40980-7926-11eb-853d-50c37c535b1c.png width="300"/>
 
 
 ### Limitations
 Our initial goal was to build a model that takes in 3D MRI images, that give a complete view of the Brain, but were unable to accomplish this due to limited access to processing power. An example of a 3D MRI scan is shown below. 
-![image](https://user-images.githubusercontent.com/73403238/109405543-78f56b80-7926-11eb-9e1a-4dd4ec1644d7.png =250x)
+<img src=https://user-images.githubusercontent.com/73403238/109405543-78f56b80-7926-11eb-9e1a-4dd4ec1644d7.png  width="300"/>
 
 
 ### Authors 
