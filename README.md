@@ -24,9 +24,11 @@ Accuracy:
 Our model is trained on a data set from Kaggel Brain MRI Images for Brain Tumor Detection. The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no". 
 <br />
 MRI Scan without a Tumor
+<br />
 <img src = "http://aaliyahhanni.pythonanywhere.com/static/img/no.jpeg" alt = "No_tumor" width="300"/>
 <br />
 MRI Scan with a Tumor (notated with arrow)
+<br />
 <img src = "http://aaliyahhanni.pythonanywhere.com/static/img/yes.jpg" alt = "Yes_tumor" width="300"/>
 <br />
 
