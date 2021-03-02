@@ -34,6 +34,8 @@ MRI Scan with a Tumor (notated with arrow)
 
 ## How to Use the Model (from GitHub)
 [need to add more details, step-by-step guide of how to install and run on local machine]
+![Use Case](https://user-images.githubusercontent.com/73403238/109585563-98240280-7ab8-11eb-8469-6290c813da10.jpg)
+
 
 ## Limitations
 Our initial goal was to build a model that takes in 3D MRI images, that give a complete view of the Brain, but were unable to accomplish this due to limited access to processing power. An example of a 3D MRI scan is shown below. 
