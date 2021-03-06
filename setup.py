@@ -1,17 +1,18 @@
-from setuptools import setup
+import setuptools
 
-with open("README", 'r') as f:
+with open('README.md', 'r') as f:
     long_description = f.read()
-    
-setup(
+
+setuptools.setup(
    name = 'brain_scan',
    version = '0.1.0',
    description = 'A brain scan tumor classification model.',
    license = 'MIT',
-   long_description = long_description, 
+   long_description = long_description,
    author = 'DATA 515 Brain Scan Classification Team',
-   author_email = 'aaliyahfiala42@gmail.com', 
-   url = "http://aaliyahhanni.pythonanywhere.com/"
-   packages = ['brain_scan'],
+   author_email = 'fialaa@uw.edu',
+   url = "http://aaliyahhanni.pythonanywhere.com/",
+   python_requires='>=3.6',
+   packages = setuptools.find_packages('brain_scan'),
    install_requires = ['tensorflow', 'urllib3'] #NOTE: Need to list ALL dependencies we use in final project
 )
