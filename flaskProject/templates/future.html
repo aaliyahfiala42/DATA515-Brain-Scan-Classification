@@ -1,0 +1,71 @@
+<!-- Future Endeavors -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/style/css/bootstrap.css">
+    <!-- Style CSS -->
+	<link rel="stylesheet" href="../static/style/css/style.css">
+
+<style>
+h2 {
+	font-weight: bold;
+	font-size: 24px;
+	font-family: sans-serif;
+}
+
+h3 {
+  font-weight: normal;
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #707070;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+</style>
+
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="topnav">
+	<a href="/">Home</a>
+	<a href="/data">Data Description</a>
+	<a href="/about">ML Model</a>
+	<a class="active" href="/future">Future Endeavors</a>
+	<a href="/team">About Our Team</a>
+</div>
+
+<h1 align="center"> Moving Forward </h1>
+
+<!-- Main Content-->
+<div class="content" align="center">
+	<p>Our project originally planned on using 3D MRI scans (.mha files) to build a 3D CNN model to make predictions. However, due to the incredibly large size of our input data we were not able to efficiently perform the heavy computation required to train the model.
+Despite trying to pare down our data by only analyzing the middle slice of an mri as a two dimensional image, we found that we were very likely to miss important features contained in the remaining slices, and ultimately, our model accuracy left a lot to be desired.</p>
+
+	<img src="../static/img/MRI.gif" width="30%">
+	<figcaption>Gif showing all 155 slices of a .mha file (Data Source: <a href="https://www.kaggle.com/andrewmvd/brain-tumor-segmentation-in-mri-brats-2015" target="_blank">Brain Tumor Segmentation in MRI (BRATS 2015)</a> ) </figcaption>
+
+	<p>While our 2D model performed relatively well on our dataset, with three dimensions worth of data in a typical MRI it is hard to ignore the potential room for improvement. In the future, we would hope to retry and test our 3D CNN using hardware and/or cloud computing services that are up to the task. </p>
+
+</div>
+
+
+<!-- Footer -->
+<div class = "footer">
+  <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
+  <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
+</div>
+
+</body>
+</html>

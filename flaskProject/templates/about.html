@@ -1,0 +1,72 @@
+<!-- Model Information -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/style/css/bootstrap.css">
+    <!-- Style CSS -->
+	<link rel="stylesheet" href="../static/style/css/style.css">
+
+<style>
+h2 {
+	font-weight: bold;
+	font-size: 24px;
+	font-family: sans-serif;
+}
+
+h3 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 18px;
+  color: #707070;
+  font-family: sans-serif;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+</style>
+
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="topnav">
+	<a href="/">Home</a>
+	<a href="/data">Data Description</a>
+	<a class="active" href="/about">ML Model</a>
+	<a href="/future">Future Endeavors</a>
+	<a href="/team">About Our Team</a>
+</div>
+
+<h1 align="center"> The Model </h1>
+
+<!-- Main Content-->
+<div align="center">
+	<img src = "../static/img/nn.png"  width="80%" style="padding-top: 30px">
+	<figcaption>Fig. Illustration of Neural Network Architecture (produced using <a href="http://alexlenail.me/NN-SVG/LeNet.html">NN-SVG</a>) </figcaption>
+</div>
+
+<div class="content" align="center">
+	<p> Our tumor detection model shown above is a 2D CNN with nine hidden layers, and was built using both tensorflow and keras. The input images (data set is described in the "Data Description" tab) 
+	were first reshaped into standardized 240x240x1 grayscale arrays using the opencv Computer Vision module, they were then normalized through positive global standardization. After being trained on the
+	data, the model predicts if a brain image has a tumor (prediction of 1) or does not (prediction of 0). Below are a few of our model's training parameters and metrics:<br /><br />
+	Initial Learning Rate: 0.01<br />
+	Number of Total Training Epochs: 100<br />
+	Final Validation Set Accuracy: .902
+	</p>
+</div>
+
+<!-- Footer -->
+<div class = "footer">
+  <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
+  <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
+</div>
+
+</body>
+</html>
