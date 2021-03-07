@@ -2,17 +2,17 @@
 <!-- Home Page/Upload picture for prediction -->
 <!-- CHANGING ABOVE COMMENT WILL BREAK UNIT TESTING -->
 <!doctype html>
-<html lang = "en">
+<html lang="en">
 
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
     <title>Upload Image for Tumor Detection</title>
 
 
     <!-- Bootstrap CSS -->
-    <link rel = "stylesheet" href = "../static/style/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/style/css/bootstrap.css">
 	<!-- Style CSS -->
-	<link rel = "stylesheet" href = "../static/style/css/style.css">
+	<link rel="stylesheet" href="../static/style/css/style.css">
 
 
 <style>
@@ -38,45 +38,45 @@ p {
 
 <body>
 <!-- Navigation Bar -->
-<div class = "topnav">
-	<a class = "active" href = "/">Home</a>
-	<a href = "/data">Data Description</a>
-	<a href = "/about">ML Model</a>
-	<a href = "/future">Future Endeavors</a>
-	<a href = "/team">About Our Team</a>
+<div class="topnav">
+	<a class="active" href="/">Home</a>
+	<a href="/data">Data Description</a>
+	<a href="/about">ML Model</a>
+	<a href="/future">Future Endeavors</a>
+	<a href="/team">About Our Team</a>
 </div>
 
 
-<h1 align = "center"> Brain Tumor Detection </h1>
+<h1 align="center"> Brain Tumor Detection </h1>
 
 <!-- Main Content-->
-<h3 align = "center">Select a image file (.jpg, .png, .jpeg) to upload and click the submit for prediction result</h3>
+<h3 align="center">Select a file (.jpg / .jpeg / .png) to upload and click submit for the prediction result</h3>
 
 	{% with messages = get_flashed_messages() %}
 	{% if messages %}
 
 	{% for message in messages %}
-	<h2 align = "center">{{ message }}</h2>
+	<h2 align="center">{{ message }}</h2>
 		{% endfor %}
 
 		{% endif %}
 		{% endwith %}
 
 	{% if filename %}
-	<div align = "center">
-		<img src = "{{ url_for('display_image', filename=filename) }}" width = "300px">
+	<div align="center">
+		<img src="{{ url_for('display_image', filename=filename) }}" width="300px">
 	</div>
 
 	{% endif %}
 
-	<form method = "post" action = "/" enctype = "multipart/form-data" align = "center">
+	<form method="post" action="/" enctype="multipart/form-data" align="center">
 		<dl>
 			<p>
-				<input type = "file" name = "file" autocomplete = "off" required>
+				<input type="file" name="file" autocomplete="off" required>
 			</p>
 		</dl>
 		<p>
-			<input type = "submit" value = "Submit">
+			<input type="submit" value="Submit">
 		</p>
 	</form>
 
@@ -84,8 +84,11 @@ p {
 <!-- Footer -->
 <div class = "footer">
   <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
-  <a href = "https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style = "color:white">GitHub Page</a></p>
+  <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
 </div>
 
 </body>
 </html>
+
+
+

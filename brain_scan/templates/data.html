@@ -2,25 +2,27 @@
 <!-- Data Description -->
 <!-- CHANGING ABOVE COMMENT WILL BREAK UNIT TESTING -->
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
     <title>Title</title>
 
 
     <!-- Bootstrap CSS -->
-    <link rel = "stylesheet" href = "../static/style/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/style/css/bootstrap.css">
     <!-- Style CSS -->
-	<link rel = "stylesheet" href = "../static/style/css/style.css">
+	<link rel="stylesheet" href="../static/style/css/style.css">
 
 <style>
 h2 {
 	font-weight: bold;
 	font-size: 24px;
+	font-family: sans-serif;
 }
 
 h3 {
   font-weight: normal;
+  font-family: sans-serif;
   font-style: italic;
   font-size: 18px;
   color: #707070;
@@ -29,6 +31,7 @@ h3 {
 p {
   text-align: center;
   font-size: 18px;
+  font-family: sans-serif;
 }
 
 </style>
@@ -36,31 +39,32 @@ p {
 </head>
 <body>
 <!-- Navigation Bar -->
-<div class = "topnav">
-	<a href = "/">Home</a>
-	<a class = "active" href = "/data">Data Description</a>
-	<a href = "/about">ML Model</a>
-	<a href = "/future">Future Endeavors</a>
-	<a href = "/team">About Our Team</a>
+<div class="topnav">
+	<a href="/">Home</a>
+	<a class="active" href="/data">Data Description</a>
+	<a href="/about">ML Model</a>
+	<a href="/future">Future Endeavors</a>
+	<a href="/team">About Our Team</a>
 </div>
 
-<h1 align = "center"> Data Set Description </h1>
+<h1 align="center"> Data Set Description </h1>
 
 <!-- Main Content-->
-<div class = "content" align = "center">
-    <p>
-    The data is taken from Kaggle <a href = "https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection" style = "color:black" >Brain MRI Images for Brain Tumor Detection</a>.
-    The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no".
-    An example of an MRI scan without a tumor is shown on the left and an example of scan with tumor is shown on the right, where the tumor is pointed out by the arrow.
+<div class="content" align="center">
+    <p>This dataset is taken from Kaggel: <a href="https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection" style="color:black" >Brain MRI Images for Brain Tumor Detection</a>.
+    The data consists of 253 images among which 155 images are tumorous (labeled "yes") and 98 images are non-tumorous
+        (labeled "no").
+    An example of a non-tumorous image is shown on the left, with a tumorous image shown to the right - the tumor
+        is denoted with a black arrow.
     </p>
 </div>
 
-<div align = "center" class = "row">
-  <div class = "column">
-    <img src = "../static/img/no.jpeg" alt = "No_tumor" style = "width:300px; height: 300px; margin-right: 30px" align = "right" >
+<div align = "center" class="row">
+  <div class="column">
+    <img src="../static/img/no.jpeg" alt="No_tumor" style="width:300px; height: 300px; margin-right: 30px" align="right" >
   </div>
-  <div class = "column">
-    <img src = "../static/img/yes.jpg" alt = "Yes_tumor" style = "width:300px; height: 300px; margin-left: 30px" align = "left">
+  <div class="column">
+    <img src="../static/img/yes.jpg" alt="Yes_tumor" style="width:300px; height: 300px; margin-left: 30px" align="left">
   </div>
 
 </div>
@@ -68,7 +72,7 @@ p {
 <!-- Footer -->
 <div class = "footer">
   <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
-  <a href = "https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style = "color:white">GitHub Page</a></p>
+  <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
 </div>
 
 </body>
