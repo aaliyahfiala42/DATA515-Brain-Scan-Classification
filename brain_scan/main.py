@@ -4,7 +4,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import cv2
 #from prediction import *
-from brain_scan import prediction.prediction as prediction
+from brain_scan import prediction
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
@@ -43,7 +43,7 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        pred = prediction(filename)
+        pred = prediction.prediction(filename)
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
     else:
