@@ -2,7 +2,7 @@ import unittest
 import sys
 # sys.path.append('../brain_scan/')
 # import main
-from brain_scan import application
+from brain_scan import app
 
 class TestDisplayImage(unittest.TestCase):
     def setUp(self):
