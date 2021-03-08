@@ -1,2 +1,2 @@
 import sys
-sys.path.append('../brain-scan/')
+sys.path.append('/brain-scan/')
