@@ -12,6 +12,20 @@
   cursor: pointer;
 }
 
+body {
+    margin: 0px;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px;
+}
 
 .footer {
   position: fixed;
@@ -21,6 +35,7 @@
   text-align: center;
   background-color:black;
   color: white;
+  padding: 5px 0px 16px 0px;
 }
 
 .row {
