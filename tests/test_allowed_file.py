@@ -2,7 +2,7 @@ import unittest
 import sys
 # sys.path.append('../brain_scan/')
 # import main #import entire module to have access to global variable ALLOWED_EXTENSIONS
-from brain_scan import app
+from brain_scan import application
 
 class TestAllowedFile(unittest.TestCase):
     def test_allowed_file_true(self):
