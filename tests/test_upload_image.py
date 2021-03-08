@@ -19,22 +19,22 @@ class TestUploadImage(unittest.TestCase):
     def test_upload_image_file_not_in_request(self):
         results = application.upload_image(file)
         
-        self.assertEquals(results, redirect(request.url))
+        self.assertEquals(results, application.redirect(request.url))
     
     def test_upload_image_empty_filename(self):
         file = ''
         results = application.upload_image(file)
         
-        self.assertEquals(results, redirect(request.url))
+        self.assertEquals(results, application.redirect(request.url))
         
     def test_allowed_image_upload(self):
         file = 'img.jpeg'
         results = application.upload_image(file)
         
-        self.assertEquals(results, render_template('upload.html', filename=filename))
+        self.assertEquals(results, application.render_template('upload.html', filename=filename))
         
     `def test_not_allowed_image_upload(self):
         file = 'img'
         results = application.upload_image(file)
         
-        self.assertEquals(results, redirect(request.url))
+        self.assertEquals(results, application.redirect(request.url))
