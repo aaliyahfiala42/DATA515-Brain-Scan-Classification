@@ -2,7 +2,7 @@ import unittest
 import sys
 # sys.path.append('../brain_scan/')
 # import main
-from brain_scan import main
+from brain_scan import application
 
 class TestDataPage(unittest.TestCase):
     def setUp(self):
