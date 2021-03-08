@@ -14,5 +14,5 @@ setuptools.setup(
    url = "http://aaliyahhanni.pythonanywhere.com/",
    python_requires='>=3.6',
    packages = setuptools.find_packages('brain_scan'),
-   install_requires = ['tensorflow', 'urllib3'] #NOTE: Need to list ALL dependencies we use in final project
+   install_requires = ['tensorflow', 'urllib3', 'Keras-Preprocessing', 'opencv-python']
 )
