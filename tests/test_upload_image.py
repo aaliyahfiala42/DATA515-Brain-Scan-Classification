@@ -33,7 +33,7 @@ class TestUploadImage(unittest.TestCase):
         
         self.assertEquals(results, render_template('upload.html', filename=filename))
         
-    `def test_not_allowed_image_upload(self):
+    def test_not_allowed_image_upload(self):
         f = 'img'
         results = application.upload_image(f)
         
