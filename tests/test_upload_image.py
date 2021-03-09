@@ -6,7 +6,7 @@ from brain_scan import application
 
 class TestUploadImage(unittest.TestCase):
     def setup(self):
-        self.app = main.app.test_client()
+        self.app = application.app.test_client()
         
     def test_upload_image_get(self):
         rv = self.app.get('/')
@@ -17,7 +17,7 @@ class TestUploadImage(unittest.TestCase):
         self.assertTrue('302 FOUND' == str(rv.data))
         
     def test_upload_image_file_not_in_request(self):
-        results = application.upload_image(file)
+        results = application.upload_image()
         
         self.assertEquals(results, redirect(request.url))
     
