@@ -6,7 +6,7 @@ from brain_scan import application
 
 class TestDataPage(unittest.TestCase):
     def setUp(self):
-        self.app = main.app.test_client()
+        self.app = application.app.test_client()
 
     def test_data_page_get(self):
         rv = self.app.get('/data')
