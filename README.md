@@ -15,11 +15,11 @@ For this project, we are using a 2D Convolution Neural Network with one hidden l
 
 [Include Snippets of Code & More General Details]
 
-Number of Epoch:
-Learning Rate:
-Accuracy:
+Initial Learning Rate: 0.01 <br />
+Number of Total Training Epochs: 100 <br />
+Final Validation Set Accuracy: .902
 
-<img src=https://user-images.githubusercontent.com/73403238/109405511-3338a300-7926-11eb-997e-a63ba93bf3b6.png width="300"/>
+<img src=/brain_scan/static/img/nn.png>
 
 Our model is trained on a data set from Kaggel Brain MRI Images for Brain Tumor Detection. The data consist of 253 images among which 155 images are labeled "yes" and 98 images labeled "no". 
 <br />
