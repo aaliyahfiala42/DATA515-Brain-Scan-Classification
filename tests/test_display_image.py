@@ -6,7 +6,7 @@ from brain_scan import application
 
 class TestDisplayImage(unittest.TestCase):
     def setUp(self):
-        self.app = main.app.test_client()
+        self.app = application.app.test_client()
 
     def test_display_image(self):
         rv = self.app.get('/display/no.jpeg')
