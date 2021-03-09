@@ -9,11 +9,11 @@ class TestUploadImage(unittest.TestCase):
         self.app = application.app.test_client()
         
     def test_upload_image_get(self):
-        rv = self.app.get('/')
+        rv = self.app.get('/upload')
         self.assertTrue('<!-- Home Page/Upload picture for prediction -->' in str(rv.data))
         
     def test_upload_image_post(self):
-        rv = self.app.post('/')
+        rv = self.app.post('/upload')
         self.assertTrue('302 FOUND' == str(rv.data))
         
     def test_upload_image_file_not_in_request(self):
