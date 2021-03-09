@@ -5,7 +5,7 @@ import sys
 from brain_scan import application
 
 class TestUploadImage(unittest.TestCase):
-    def setup(self):
+    def setUp(self):
         self.app = application.app.test_client()
         
     def test_upload_image_get(self):
