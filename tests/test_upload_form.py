@@ -10,7 +10,7 @@ class TestUploadForm(unittest.TestCase):
         Flask testing is confusing, but I'm 99% sure it is necessary
         to init a test client to check for template rendering
         '''
-        self.app = main.app.test_client()
+        self.app = application.app.test_client()
 
     def test_upload_form(self):       
         '''
