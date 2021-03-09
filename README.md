@@ -3,7 +3,7 @@
 Location: http://aaliyahhanni.pythonanywhere.com/
 
 The Brain Scan Classification is a machine learning project that classifies 2D brain scan images as tumorous or not. Our website allows users to upload their own (.jpg) photos into the model, and get a prediciton result. 
-![image](https://user-images.githubusercontent.com/73403238/109405348-9590a400-7924-11eb-8eec-64639a7b33a1.png)
+<img src="/brain_scan/static/img/home.PNG">
 
 ## How It Works
 1. Navigate to http://aaliyahhanni.pythonanywhere.com/
