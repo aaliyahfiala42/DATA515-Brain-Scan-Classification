@@ -23,73 +23,72 @@ h2 {
 }
 
 h3 {
-  font-weight: normal;
-  font-style: italic;
-  font-size: 18px;
-  color: #707070;
-  font-family: sans-serif;
+  	font-weight: normal;
+  	font-style: italic;
+  	font-size: 18px;
+  	color: #707070;
+  	font-family: sans-serif;
 }
 
 p {
-  text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
+  	text-align: center;
+  	font-size: 18px;
+  	font-family: sans-serif;
 }
 </style>
-
 </head>
 
 <body>
 <div class="wrapper">
-<!-- Navigation Bar -->
-<div class="topnav">
-	<a class="active" href="/">Home</a>
-	<a href="/data">Data Description</a>
-	<a href="/about">ML Model</a>
-	<a href="/future">Future Endeavors</a>
-	<a href="/team">About Our Team</a>
-</div>
-
-
-<h1 align="center"> Brain Tumor Detection </h1>
-
-<!-- Main Content-->
-<h3 align="center">Select a file (.jpg / .jpeg / .png) to upload and click submit for the prediction result</h3>
-
-	{% with messages = get_flashed_messages() %}
-	{% if messages %}
-
-	{% for message in messages %}
-	<h2 align="center">{{ message }}</h2>
-		{% endfor %}
-
-		{% endif %}
-		{% endwith %}
-
-	{% if filename %}
-	<div align="center">
-		<img src="{{ url_for('display_image', filename=filename) }}" width="300px">
+	<!-- Navigation Bar -->
+	<div class="topnav">
+		<a class="active" href="/">Home</a>
+		<a href="/data">Data Description</a>
+		<a href="/about">ML Model</a>
+		<a href="/future">Future Endeavors</a>
+		<a href="/team">About Our Team</a>
 	</div>
 
-	{% endif %}
 
-	<form method="post" action="/" enctype="multipart/form-data" align="center">
-		<dl>
+	<h1 align="center"> Brain Tumor Detection </h1>
+
+	<!-- Main Content-->
+	<h3 align="center">Select a file (.jpg / .jpeg / .png) to upload and click submit for the prediction result</h3>
+
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+
+		{% for message in messages %}
+		<h2 align="center">{{ message }}</h2>
+			{% endfor %}
+
+			{% endif %}
+			{% endwith %}
+
+		{% if filename %}
+		<div align="center">
+			<img src="{{ url_for('display_image', filename=filename) }}" width="300px">
+		</div>
+
+		{% endif %}
+
+		<form method="post" action="/" enctype="multipart/form-data" align="center">
+			<dl>
+				<p>
+					<input type="file" name="file" autocomplete="off" required>
+				</p>
+			</dl>
 			<p>
-				<input type="file" name="file" autocomplete="off" required>
+				<input type="submit" value="Submit">
 			</p>
-		</dl>
-		<p>
-			<input type="submit" value="Submit">
-		</p>
-	</form>
+		</form>
 
 
-<!-- Footer -->
-<div class = "footer">
-  <p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
-  <a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
-</div>
+	<!-- Footer -->
+	<div class = "footer">
+	  	<p>UW DATA 515 Winter 2021 Final Project - Brain Tumor Detection<br>
+	  	<a href="https://github.com/aaliyahfiala42/DATA-515-Brain-Scan"  style="color:white">GitHub Page</a></p>
+	</div>
 </div>
 </body>
 </html>
