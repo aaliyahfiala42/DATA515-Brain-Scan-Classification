@@ -1,8 +1,5 @@
 import unittest
-import sys
-# sys.path.append('../brain_scan/')
-# import main # Import entire module for access to globals
-from brain_scan import application
+from brain_scan import app
 
 class TestUploadForm(unittest.TestCase):
     def setUp(self):

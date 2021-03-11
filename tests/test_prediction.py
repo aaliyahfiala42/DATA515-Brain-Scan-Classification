@@ -1,8 +1,5 @@
 import unittest
-import sys
-# sys.path.append('../brain_scan/')
-# import prediction
-from brain_scan import prediction
+from brain_scan import app
 
 class TestPrediction(unittest.TestCase):
     def test_prediction_no_image(self):

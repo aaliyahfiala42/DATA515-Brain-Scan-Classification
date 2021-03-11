@@ -7,7 +7,6 @@ certifi==2020.6.20
 chardet==3.0.4
 chromedriver-install==1.0.3
 click==7.1.2
-opencv-python==4.5.1.48
 cycler==0.10.0
 dash==1.17.0
 dash-core-components==1.13.0
@@ -37,6 +36,7 @@ mccabe==0.6.1
 nibabel==3.2.1
 numpy==1.19.2
 oauthlib==3.1.0
+opencv-python==4.1.2.30
 opt-einsum==3.3.0
 packaging==20.4
 pandas==1.1.3

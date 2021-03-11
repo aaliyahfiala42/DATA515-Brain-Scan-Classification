@@ -3,7 +3,7 @@ import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import cv2
-from brain_scan import prediction
+import prediction
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
@@ -108,7 +108,7 @@ def team_page():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
 
 '''
 Citing the references sources of code:
