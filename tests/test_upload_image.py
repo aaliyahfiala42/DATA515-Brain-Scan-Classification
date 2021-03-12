@@ -1,5 +1,5 @@
 import unittest
-from cStringIO import StringIO
+from io import BytesIO
 from brain_scan import app
 
 
@@ -10,6 +10,6 @@ class TestUploadImage(unittest.TestCase):
         self.client = self.app.test_client()
         
     def test_upload_image(self):
-        res = self.client.post('/', data = {upload_var = (StringIO('test'), 'test.txt'),})
+        res = self.client.post('/', data = dict(file = (io.BytesIO(n"This is a test"), 'test.jpeg'),), follow_redirects = True)
         assert res.status_code == 200
         assert 'file saved' in res.data
