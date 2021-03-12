@@ -6,7 +6,5 @@ before_install:
 script:
   - coverage run -m unittest discover tests
   - flake8 .
-env:
-  - GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 after_success:
-  - coveralls --service=github
+  - coveralls
