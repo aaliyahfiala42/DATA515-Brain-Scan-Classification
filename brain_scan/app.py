@@ -1,8 +1,6 @@
 import os
-import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
-import cv2
 import sys
 from pathlib import Path
 file = Path(__file__).resolve()
@@ -11,7 +9,7 @@ sys.path.append(str(root))
 # Remove the current file's directory from sys.path
 try:
     sys.path.remove(str(parent))
-except ValueError: # Already removed
+except ValueError:  # Already removed
     pass
 from brain_scan import prediction
 
@@ -65,7 +63,6 @@ def upload_image():
 @app.route('/display/<filename>')
 def display_image(filename):
     # print('display_image filename: ' + filename)
-    size = 10
     return redirect(url_for('static',
                     filename='uploads/' + filename, code=301))
 
