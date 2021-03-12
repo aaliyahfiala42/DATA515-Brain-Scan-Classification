@@ -43,11 +43,11 @@ images among which 155 images are labeled "yes" and 98 images labeled "no".
 
 
 Below are two sample images from the data set:
-
+<p align="center">
 | MRI Scan without a Tumor  | MRI Scan with a Tumor (notated with arrow)|
 | :---: | :---: |
 | <img src = "/brain_scan/static/img/no.jpeg" alt = "No_tumor" width ="300" >  | <img src = "/brain_scan/static/img/yes.jpg" alt = "Yes_tumor" width = "280" >  |
-
+</p>
 ## How to Train Our Model
 If you'd like to fiddle with any of the inner-workings of our model, all code used in its 
 creation can be found in the 'notebooks' directory under the filename 
@@ -78,13 +78,8 @@ def prediction(input_filepath):
     else:
         return ("No")
 ```
-
-<p align="center">
-<img src = "https://user-images.githubusercontent.com/73403238/109585563-98240280-7ab8-11eb-8469-6290c813da10.jpg" alt = "user_case" width=50%> 
-</p>
-
 ## Limitations
-Our initial goal was to build a model that trained on 3D MRI images and thus get a more complete view of the Brain/possible tumors.
+Our initial goal was to build a model that trained on 3D MRI images and thus get a more complete view of the brain/possible tumors.
 However, this type of volumetric input necessitated a 3D Convolutional Neural Network, which we were unable to train effectively
 due to limited processing power adn memory on our local machines. In the future, we hope to have access to the hardware
 necessary to implement this type of model.
