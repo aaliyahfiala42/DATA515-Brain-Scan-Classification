@@ -8,7 +8,7 @@ The Brain Scan Classification is a machine learning project that classifies 2D b
 <img src="/brain_scan/static/img/home.PNG">
 
 ## How It Works
-1. Navigate to http://aaliyahhanni.pythonanywhere.com/
+1. Navigate to the 'Do I Have A Tumor?' website: http://doihaveatumor.com/
 2. Click the 'Choose File' button, and select the 2D .jpg brain scan from your file explorer
 3. Click the 'Submit' button, and wait for the results to display at the top of the page
 
