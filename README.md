@@ -43,11 +43,10 @@ images among which 155 images are labeled "yes" and 98 images labeled "no".
 
 
 Below are two sample images from the data set:
-<p align="center">
+
 | MRI Scan without a Tumor  | MRI Scan with a Tumor (notated with arrow)|
 | :---: | :---: |
 | <img src = "/brain_scan/static/img/no.jpeg" alt = "No_tumor" width ="300" >  | <img src = "/brain_scan/static/img/yes.jpg" alt = "Yes_tumor" width = "280" >  |
-</p>
 ## How to Train Our Model
 If you'd like to fiddle with any of the inner-workings of our model, all code used in its 
 creation can be found in the 'notebooks' directory under the filename 
