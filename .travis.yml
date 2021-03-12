@@ -6,4 +6,4 @@ script:
   - coverage run -m unittest discover tests
   - flake8 .
 after_success:
-  - coverage report -m -i
+  - coverage report -m
