@@ -2,9 +2,9 @@ language: python
 before_install:
   - pip install coverage
   - pip install flake8
-  - pip install python-coveralls
+  - pip install coveralls
 script:
   - coverage run -m unittest discover tests
   - flake8 .
 after_success:
-  - coveralls
+  - coveralls --service=github
