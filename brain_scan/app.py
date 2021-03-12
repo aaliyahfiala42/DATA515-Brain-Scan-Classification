@@ -1,3 +1,4 @@
+from brain_scan import prediction
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -11,7 +12,6 @@ try:
     sys.path.remove(str(parent))
 except ValueError:  # Already removed
     pass
-from brain_scan import prediction
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
