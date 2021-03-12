@@ -55,7 +55,7 @@ creation can be found in the 'notebooks' directory under the filename
 of the dataset, please specify its location in cell 4.
 
 ## How to Use the Model (from GitHub)
-To use our model in your own code, create the following function:
+To use our model in your own code, use the following function:
 
 ```
 import tensorflow as tf
@@ -64,7 +64,7 @@ import numpy as np
 
 def prediction(input_filepath):
     model = tf.keras.models.load_model(final_model.h5')
-    image = cv2.imread(filepath)
+    image = cv2.imread(input_filepath)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Reshape the image so that it fits the model required input format
