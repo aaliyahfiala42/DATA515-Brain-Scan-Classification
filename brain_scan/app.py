@@ -13,7 +13,7 @@ try:
 except ValueError:  # Already removed
     pass
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 # Specify the place to store the uploaded images
 UPLOAD_FOLDER = str(root) + '/brain_scan/static/uploads/'
@@ -54,7 +54,7 @@ def upload_image():
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
     else:
-        flash('Allowed image types are -> png, jpg, jpeg, gif')
+        flash('Allowed image types are -> png, jpg, jpeg')
         return redirect(request.url)
 
 
