@@ -1,6 +1,7 @@
 import unittest
 from brain_scan import app
 
+
 class TestUploadForm(unittest.TestCase):
     def setUp(self):
         '''
@@ -9,10 +10,10 @@ class TestUploadForm(unittest.TestCase):
         '''
         self.app = app.app.test_client()
 
-    def test_upload_form(self):       
+    def test_upload_form(self):
         '''
         Tests for successful rendering of template on '/' GET route
         '''
-        rv = self.app.get('/') # Stores response from '/' GET route as data attribute`
-        # HTML comment is a unique identifier in upload.html
-        self.assertTrue('<!-- Home Page/Upload picture for prediction -->' in str(rv.data)) 
+        rv = self.app.get('/')
+        self.assertTrue('<!-- Home Page/Upload picture for prediction -->'
+                        in str(rv.data))
