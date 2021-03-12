@@ -3,7 +3,7 @@ from brain_scan import app
 
 class TestAboutPage(unittest.TestCase):
     def setUp(self):
-        self.app = application.app.test_client()
+        self.app = app.app.test_client()
 
     def test_about_page_get(self):
         rv = self.app.get('/future')

@@ -1,5 +1,5 @@
 import unittest
-from brain_scan import app
+from brain_scan import prediction
 
 class TestPrediction(unittest.TestCase):
     def test_prediction_no_image(self):

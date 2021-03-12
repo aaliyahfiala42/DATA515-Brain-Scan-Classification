@@ -3,12 +3,22 @@ import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import cv2
-import prediction
+import sys
+from pathlib import Path
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+# Remove the current file's directory from sys.path
+try:
+    sys.path.remove(str(parent))
+except ValueError: # Already removed
+    pass
+from brain_scan import prediction
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 # Specify the place to store the uploaded images
-UPLOAD_FOLDER = 'static/uploads/'
+UPLOAD_FOLDER = str(root) + '/brain_scan/static/uploads/'
 
 # Create the flask app
 app = Flask(__name__)

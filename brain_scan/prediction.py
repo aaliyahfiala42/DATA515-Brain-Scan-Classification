@@ -1,12 +1,22 @@
 import tensorflow as tf
 import cv2
 import numpy as np
+import sys
+from pathlib import Path
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+# Remove the current file's directory from sys.path
+try:
+    sys.path.remove(str(parent))
+except ValueError: # Already removed
+    pass
 
 
 # Take the uploaded images and perform prediction (model is loaded as a .h5 file)
 def prediction(path):
-    model = tf.keras.models.load_model('./final_model.h5')
-    image = cv2.imread("./static/uploads/"+path)
+    model = tf.keras.models.load_model(str(root) + '/brain_scan/final_model.h5')
+    image = cv2.imread(str(root) + "/brain_scan/static/uploads/"+path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Reshape the image so that it fits the model required input format
