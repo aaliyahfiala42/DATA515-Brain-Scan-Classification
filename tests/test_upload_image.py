@@ -11,9 +11,16 @@ class TestUploadImage(unittest.TestCase):
 
     def test_upload_image(self):
         data = dict(
-                file=(BytesIO(b'This is a test'), "test.pickle"),
+                file=(BytesIO(b'This is a test'), "test.jpeg"),
                     )
         response = self.client.post('/', content_type='image/gif',
                                     data=data, follow_redirects=True)
 
         assert response.status_code == 200
+
+    def test_upload_image_fail(self):
+
+        response = self.client.post('/', content_type='image/gf',
+                                    follow_redirects=True)
+
+        assert b'No file part' in response.data
