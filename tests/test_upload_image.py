@@ -5,11 +5,15 @@ from brain_scan import app
 
 class TestUploadImage(unittest.TestCase):
     def setUp(self):
-        self.app = app
+        self.app = app.app
         self.app.config['Testing'] = True
         self.client = self.app.test_client()
-        
+
     def test_upload_image(self):
-        res = self.client.post('/', data = dict(file = (io.BytesIO(b"This is a test"), 'test.jpeg'),), follow_redirects = True)
-        assert res.status_code == 200
-        assert 'file saved' in res.data
+        data = dict(
+                file=(BytesIO(b'This is a test'), "test.pickle"),
+                    )
+        response = self.client.post('/', content_type='image/gif',
+                                    data=data, follow_redirects=True)
+
+        assert response.status_code == 200
