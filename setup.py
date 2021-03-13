@@ -22,8 +22,8 @@ setuptools.setup(
    long_description=long_description,
    author='DATA 515 Brain Scan Classification Team',
    author_email='fialaa@uw.edu',
-   url="http://aaliyahhanni.pythonanywhere.com/",
-   python_requires='>=3.6',
+   url="http://doihaveatumor.com/",
+   python_requires='>=3.6, <=3.8',
    packages=setuptools.find_packages('brain_scan'),
    install_requires=REQUIREMENTS
 )
