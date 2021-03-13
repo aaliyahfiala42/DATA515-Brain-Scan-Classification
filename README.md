@@ -89,5 +89,64 @@ A gif of a all 155 slices of a 3D MRI scan is shown below:
 <img src=http://aaliyahhanni.pythonanywhere.com/static/img/MRI.gif  width="300"/>
 </p>
 
+## File Structure
+Below is a tree representation of our github repository, image directories have been
+closed for readability purposes:
+
+```
+.
+├── Dockerfile
+├── LICENSE.md
+├── README.md
+├── brain_scan
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-37.pyc
+│   │   ├── prediction.cpython-37.pyc
+│   │   └── prediction.cpython-38.pyc
+│   ├── app.py
+│   ├── final_model.h5
+│   ├── prediction.py
+│   ├── static
+│   │   ├── img
+│   │   ├── style
+│   │   │   └── css
+│   │   │       ├── bootstrap.css
+│   │   │       ├── style.css
+│   │   │       └── team_style.css
+│   │   └── uploads
+│   ├── templates
+│   │   ├── about.html
+│   │   ├── data.html
+│   │   ├── future.html
+│   │   ├── team.html
+│   │   └── upload.html
+│   └── test_images
+│       ├── noreal
+│       └── yesreal
+├── docs
+│   ├── Component\ Specification.pdf
+│   ├── Functional\ Specification.pdf
+│   └── Technology\ Review\ Presentation.pptx
+├── examples
+│   └── Project\ Examples.pdf
+├── notebooks
+│   ├── brain_tumor_classification_FINAL.ipynb
+│   └── models
+│       └── best_classifier.h5
+├── requirements.txt
+├── setup.py
+└── tests
+    ├── __init__.py
+    ├── test_about_page.py
+    ├── test_allowed_file.py
+    ├── test_data_page.py
+    ├── test_display_image.py
+    ├── test_future_page.py
+    ├── test_prediction.py
+    ├── test_team_page.py
+    ├── test_upload_form.py
+    └── test_upload_image.py
+```
 ## Authors 
 Aaliyah Fiala, Jordan Fields, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
