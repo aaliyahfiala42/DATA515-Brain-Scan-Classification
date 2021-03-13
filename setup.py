@@ -24,6 +24,6 @@ setuptools.setup(
    author_email='fialaa@uw.edu',
    url="http://doihaveatumor.com/",
    python_requires='>=3.6, <=3.8',
-   packages=setuptools.find_packages('brain_scan'),
+   packages=setuptools.find_packages(),
    install_requires=REQUIREMENTS
 )
