@@ -21,10 +21,11 @@ setuptools.setup(
    description='A brain scan tumor classification model.',
    license='MIT',
    long_description=long_description,
-   author='DATA 515 Brain Scan Classification Team',
-   author_email='fialaa@uw.edu, ams884@uw.edu, jjfields@uw.edu>, \
-        lxw5332@uw.edu, nimstre@uw.edu, vaneshsu@uw.edu',
-   url="http://doihaveatumor.com/",
+   author='Alyson Suchodolski, Sabrina Wang, Trevor Nims, \
+        Vanessa Hsu, Aaliyah Hänni, Jordan Fields',
+   author_email='ams884@uw.edu, lxw5332@uw.edu, nimstre@uw.edu>, \
+        vaneshsu@uw.edu,  fialaa@uw.edu, jjfields@uw.edu',
+   url='http://doihaveatumor.com/'',
    python_requires='>=3.6, <3.9',
    packages=setuptools.find_packages(),
    install_requires=REQUIREMENTS
