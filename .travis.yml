@@ -6,4 +6,4 @@ script:
   - coverage run -m unittest discover tests
   - flake8 .
 after_success:
-  - coverage report -m -i --omit '/home/travis/virtualenv/python3.6.7/lib/python3.6/*' --omit 'tests/*'
+  - coverage report -m -i --omit='/home/travis/virtualenv/python3.6.7/lib/python3.6/*','tests/*'
