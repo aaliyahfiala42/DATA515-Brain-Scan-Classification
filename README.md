@@ -2,7 +2,7 @@
 
 ## Brain Scan Classification
 ### DATA 515 Final Project
-Location: http://doihaveatumor.com/
+Project Website Location: http://doihaveatumor.com/
 
 The Brain Scan Classification is a machine learning project that classifies 2D brain scan images as tumorous or not. 
 Our website allows users to upload their own (.jpg, jpeg, or .png) photos into the model, and get a prediction result. 
@@ -80,7 +80,7 @@ def prediction(input_filepath):
 ## Limitations
 Our initial goal was to build a model that trained on 3D MRI images and thus get a more complete view of the brain/possible tumors.
 However, this type of volumetric input necessitated a 3D Convolutional Neural Network, which we were unable to train effectively
-due to limited processing power adn memory on our local machines. In the future, we hope to have access to the hardware
+due to limited processing power and memory on our local machines. In the future, we hope to have access to the hardware
 necessary to implement this type of model.
 
 A gif of a all 155 slices of a 3D MRI scan is shown below:
