@@ -90,4 +90,4 @@ A gif of a all 155 slices of a 3D MRI scan is shown below:
 </p>
 
 ## Authors 
-Aaliyah Fiala, Jordan Fields, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
+Aaliyah Hänni, Jordan Fields, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
