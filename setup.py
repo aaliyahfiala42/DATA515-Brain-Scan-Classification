@@ -25,7 +25,7 @@ setuptools.setup(
         Vanessa Hsu, Aaliyah Hänni, Jordan Fields',
    author_email='ams884@uw.edu, lxw5332@uw.edu, nimstre@uw.edu>, \
         vaneshsu@uw.edu,  fialaa@uw.edu, jjfields@uw.edu',
-   url='http://doihaveatumor.com/'',
+   url='http://doihaveatumor.com/',
    python_requires='>=3.6, <3.9',
    packages=setuptools.find_packages(),
    install_requires=REQUIREMENTS

@@ -4,7 +4,6 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import sys
 from pathlib import Path
-
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -29,7 +28,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # Set the requirement for valid upload files
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 # Create the route for homepage upload.html
@@ -51,12 +50,13 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
+        
         # Create the object for class Image and Model imported from prediction.py
         # both objects take a variable path as indication to its' location
         image = prediction.Image(filename)
         model = prediction.Model("/brain_scan/final_model.h5")
         pred = model.prediction(image.process())
+        
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
     else:
@@ -70,7 +70,7 @@ def upload_image():
 def display_image(filename):
     # print('display_image filename: ' + filename)
     return redirect(url_for('static',
-                            filename='uploads/' + filename, code=301))
+                    filename='uploads/' + filename, code=301))
 
 
 # Create the route for Data description page data.html
@@ -121,7 +121,7 @@ def team_page():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
 
 '''
 Citing the references sources of code:
