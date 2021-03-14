@@ -50,7 +50,13 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        pred = prediction.prediction(filename)
+        
+        # Create the object for class Image and Model imported from prediction.py
+        # both objects take a variable path as indication to its' location
+        image = prediction.Image(filename)
+        model = prediction.Model("/brain_scan/final_model.h5")
+        pred = model.prediction(image.process())
+        
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
     else:
