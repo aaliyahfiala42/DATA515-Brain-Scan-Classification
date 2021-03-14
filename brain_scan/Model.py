@@ -93,8 +93,7 @@ class Model:
 
         tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
-        # Save best model according to its validation set binary accuracy
-
+        # Save best model according to its validation set binary accurac
         model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
             filepath=model_path,
             monitor='val_binary_accuracy',
@@ -102,13 +101,12 @@ class Model:
             save_best_only=True)
 
         # Fit model using ImageDataGenerator on training data, unaltered testing data
-
         neural_net = model.fit(datagen.flow(X_train, y_train, batch_size=32),
                                epochs=num_epochs, shuffle=True,
                                validation_data=(X_test, y_test),
                                callbacks=[tensorboard_callback, model_checkpoint_callback])
 
-        self.model = keras.models.load_model('models/best_classifier.h5')
+        self.network = keras.models.load_model('models/best_classifier.h5')
 
     def predict_from_path(self, filepath):
         """
@@ -125,7 +123,7 @@ class Model:
         test_array = self.__scale_and_normalize(test_array)
         test_array = np.expand_dims(test_array, axis=0)
         test_array = np.expand_dims(test_array, axis=3)
-        predictions = self.model.predict(test_array, batch_size=32)
+        predictions = self.network.predict(test_array, batch_size=32)
 
         if predictions[0][0] == 1:
             return 'Yes'
