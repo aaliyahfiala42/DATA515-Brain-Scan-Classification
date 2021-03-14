@@ -23,7 +23,6 @@ class Model:
 
         :param rand_seed: optional parameter, sets the seed for random number generation in
         both numpy and tensorflow to rand_seed
-
         """
         if model_path is not None:
             self.network = keras.models.load_model(model_path)
@@ -123,6 +122,7 @@ class Model:
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         image = cv2.resize(image, dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE), interpolation=cv2.INTER_CUBIC)
         test_array = np.array(image).astype('float32')
+        test_array = self.__scale_and_normalize(test_array)
         test_array = np.expand_dims(test_array, axis=0)
         test_array = np.expand_dims(test_array, axis=3)
         predictions = self.model.predict(test_array, batch_size=32)
@@ -164,7 +164,5 @@ class Model:
         arr = np.clip(arr, -1, 1)
         arr = (arr + 1) / 2
         return arr
-
-
 
 
