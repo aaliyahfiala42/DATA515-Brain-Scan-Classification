@@ -55,7 +55,7 @@ git clone https://github.com/aaliyahfiala42/DATA515-Brain-Scan-Classification.gi
 ```
 Afterwards, navigate to the local repository and run the command:
 ```
-pip install -e
+pip install -e .
 ```
 All of our work is flake8 compliant - to run our testing suite, run the command:
 ```
