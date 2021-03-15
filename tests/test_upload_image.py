@@ -24,3 +24,17 @@ class TestUploadImage(unittest.TestCase):
                                     follow_redirects=True)
 
         assert b'No file part' in response.data
+        
+    def test_no_upload_image(self):
+        
+        response = self.client.post('/', content_type = '',
+                                    follow_redirects=True)
+        
+        assert b'No image selected for uploading' in response.data
+        
+    def test_upload_image_not_allowed(self):
+        
+        response = self.client.post('/', content_type='test.txt',
+                                    follow_redirects=True)
+        
+        assert b'Allowed image types are -> png, jpg, jpeg' in response.data
