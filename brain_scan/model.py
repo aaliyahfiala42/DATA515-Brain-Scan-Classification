@@ -1,17 +1,40 @@
 import numpy as np
-
+from numpy.random import seed
 import tensorflow as tf
 from tensorflow import keras
 from sklearn.model_selection import train_test_split
 from datetime import datetime
-
 import cv2
 from os import listdir
+import sys
 from sklearn.utils import shuffle
+from pathlib import Path
 
-from numpy.random import seed
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+# Remove the current file's directory from sys.path
+try:
+    sys.path.remove(str(parent))
+except ValueError:  # Already removed
+    pass
+
 
 class Model:
+    """
+    A class .....
+    ---------
+    Attribute:
+    path : str
+        a string that is the path to where the image is located
+    ---------
+    Methods:
+            read_from_path()
+                read the image from the given path
+            process()
+                change the image to grayscale and resize the image
+    """
+
     IMAGE_SIZE = 240
 
     def __init__(self, model_path=None, rand_seed=None):
@@ -25,7 +48,7 @@ class Model:
         both numpy and tensorflow to rand_seed
         """
         if model_path is not None:
-            self.network = keras.models.load_model(model_path)
+            self.network = keras.models.load_model(str(root) + model_path)
         else:
             self.network = None
 
@@ -93,7 +116,7 @@ class Model:
 
         tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
-        # Save best model according to its validation set binary accurac
+        # Save best model according to its validation set binary accuracy
         model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
             filepath=model_path,
             monitor='val_binary_accuracy',
@@ -116,7 +139,7 @@ class Model:
         :param filepath: Filepath to image for prediction
         :return: Prediction of image containing a tumor as a string
         """
-        image = cv2.imread(filepath)
+        image = cv2.imread(str(root) + filepath)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         image = cv2.resize(image, dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE), interpolation=cv2.INTER_CUBIC)
         test_array = np.array(image).astype('float32')
@@ -164,3 +187,9 @@ class Model:
         return arr
 
 
+"""
+Example for prediction: 
+
+model = Model("/brain_scan/final_model.h5")
+print(model.predict_from_path("/brain_scan/static/uploads/Y54.JPG"))
+"""

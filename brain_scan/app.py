@@ -1,4 +1,4 @@
-from brain_scan import prediction
+from brain_scan import model
 import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -51,11 +51,10 @@ def upload_image():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         
-        # Create the object for class Image and Model imported from prediction.py
-        # both objects take a variable path as indication to its' location
-        image = prediction.Image(filename)
-        model = prediction.Model("/brain_scan/final_model.h5")
-        pred = model.prediction(image.process())
+        # Create the object Model imported from model.py with attribute of the path to the saved model
+        # use the predict_from_path function to perform the prediction on uploaded image
+        cnn_model = model.Model("/brain_scan/final_model.h5")
+        pred = cnn_model.predict_from_path("/brain_scan/static/uploads/"+filename)
         
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
@@ -121,7 +120,7 @@ def team_page():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run()
 
 '''
 Citing the references sources of code:

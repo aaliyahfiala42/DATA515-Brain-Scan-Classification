@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 import sys
 from pathlib import Path
+from model import Model
+
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -13,7 +15,7 @@ except ValueError:  # Already removed
     pass
 
 
-class Image():
+class Image:
     """
     A class ued to represent an image (np array)
     ---------
@@ -62,60 +64,58 @@ class Image():
         test_array = np.array(image)
         reshape_array = test_array.reshape(-1, 240, 240, 1)
 
-
         return reshape_array
 
-class Model():
-    """
-    A class ued to represent the tensorflow model
-    ---------
-    Attribute:
-    path : str
-        a string that is the path to where the model is located
-    ---------
-    Methods:
-        read_from_path()
-            load the model from the path that is given
-        predict()
-            use the loaded ts flower model to make a preidction on input python array
-    """
+#
+# class Model:
+#     """
+#     A class ued to represent the tensorflow model
+#     ---------
+#     Attribute:
+#     path : str
+#         a string that is the path to where the model is located
+#     ---------
+#     Methods:
+#         read_from_path()
+#             load the model from the path that is given
+#         predict()
+#             use the loaded ts flower model to make a preidction on input python array
+#     """
+#
+#     def __init__(self, path):
+#         self.path = path
+#
+#     def read_from_path(self):
+#         """
+#         Load the tf model from the path provided when object is created
+#         :return: <class 'tensorflow.python.keras.engine.sequential.Sequential'>
+#         """
+#
+#         model = tf.keras.models.load_model(str(root) + self.path)
+#
+#         return model
+#
+#     def prediction(self, array):
+#         """
+#         Perform a model prediction using the tf model on the input array
+#
+#         :param array:
+#             a numpy array of the resized image with shape (1, 240, 240, 1)
+#         :return: str:
+#             A string of "Yes" or "No" depends on the prediction result
+#         """
+#
+#         predictions = self.read_from_path().predict(array, batch_size=32)
+#         print(predictions)
+#         if predictions[0][0] == 1:
+#             return ('Yes')
+#         else:
+#             return ("No")
 
-    def __init__(self, path):
-        self.path = path
 
-    def read_from_path(self):
-        """
-        Load the tf model from the path provided when object is created
-        :return: <class 'tensorflow.python.keras.engine.sequential.Sequential'>
-        """
+# Example Usage:
 
-        model = tf.keras.models.load_model(str(root) + self.path)
-
-        return model
-
-    def prediction(self,array):
-        """
-        Perform a model prediction using the tf model on the input array
-
-        :param array:
-            a numpy array of the resized image with shape (1, 240, 240, 1)
-        :return: str:
-            A string of "Yes" or "No" depends on the prediction result
-        """
-
-        predictions = self.read_from_path().predict(array, batch_size=32)
-
-        if predictions[0][0] == 1:
-            return ('Yes')
-        else:
-            return ("No")
-
-
-"""
-Example Usage: 
-
-image = Image("Y70.jpg")
-model = Model("/brain_scan/final_model.h5")
-
-print(model.prediction(image.process()))
-"""
+# image = Image("Y56.jpg")
+# model = Model("/brain_scan/final_model.h5")
+#
+# print(model.predict_from_path(image.process()))
