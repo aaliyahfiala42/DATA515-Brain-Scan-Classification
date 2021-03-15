@@ -112,7 +112,7 @@ necessary to implement this type of model.
 A gif of a all 155 slices of a 3D MRI scan is shown below:
 <br />
 <p align="center">
-<img src=http://aaliyahhanni.pythonanywhere.com/static/img/MRI.gif  width="300"/>
+<img src=/brain_scan/static/img/MRI.gif  width="300"/>
 </p>
 
 ## File Structure
