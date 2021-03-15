@@ -25,16 +25,24 @@ class TestUploadImage(unittest.TestCase):
 
         assert b'No file part' in response.data
         
+    '''
     def test_no_upload_image(self):
+        data = dict(
+            file=(BytesIO(b'This is a test'), '',)
+                  )
         
         response = self.client.post('/', content_type = '',
-                                    follow_redirects=True)
+                                    data=data, follow_redirects=True)
         
         assert b'No image selected for uploading' in response.data
-        
+    '''
+    
     def test_upload_image_not_allowed(self):
+        data = dict(
+            file=(BytesIO(b'This is a test'), "test.txt"),
+            )
         
-        response = self.client.post('/', content_type='test.txt',
-                                    follow_redirects=True)
+        response = self.client.post('/', content_type='text/xml',
+                                    data=data, follow_redirects=True)
         
         assert b'Allowed image types are -> png, jpg, jpeg' in response.data
