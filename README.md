@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/aaliyahfiala42/DATA515-Brain-Scan-Classification.svg?branch=main)](https://travis-ci.com/aaliyahfiala42/DATA515-Brain-Scan-Classification) 
 
-## Brain Scan Classification
+## Brain Scan Tumor Classification
 ### DATA 515 Final Project
 Project Website Location: http://doihaveatumor.com/
 
