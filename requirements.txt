@@ -61,6 +61,7 @@ rsa==4.7
 scipy==1.5.3
 seaborn==0.11.0
 selenium==3.141.0
+sklearn==0.0
 six==1.15.0
 tensorboard==2.4.1
 tensorboard-plugin-wit==1.8.0
