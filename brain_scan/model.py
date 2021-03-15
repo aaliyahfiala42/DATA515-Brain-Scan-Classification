@@ -61,7 +61,7 @@ class Model:
         both numpy and tensorflow to rand_seed
         """
         if model_path is not None:
-            self.network = keras.models.load_model(str(root) + model_path)
+            self.network = keras.models.load_model(str(root) + '/' + model_path)
         else:
             self.network = None
 
@@ -155,8 +155,7 @@ class Model:
         """
         if self.network is None:
             raise NotImplementedError("No model currently loaded")
-
-        test_image = self.__read_and_resize(str(root) + filepath)
+        test_image = self.__read_and_resize(str(root) + '/' + filepath)
         test_image = self.__scale_and_normalize(test_image)
         test_image = np.expand_dims(test_image, axis=0)
         test_image = np.expand_dims(test_image, axis=3)
