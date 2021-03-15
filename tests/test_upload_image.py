@@ -38,8 +38,11 @@ class TestUploadImage(unittest.TestCase):
     '''
     
     def test_upload_image_not_allowed(self):
+        data = dict(
+            file=(BytesIO(b'This is a test'), "test.txt"),
+            )
         
-        response = self.client.post('/', content_type='text/xml',
-                                    follow_redirects=True)
+        response = self.client.post('/', content_type='image/gif',
+                                    data=data, follow_redirects=True)
         
         assert b'Allowed image types are -> png, jpg, jpeg' in response.data
