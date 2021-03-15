@@ -50,12 +50,15 @@ def upload_image():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        
-        # Create the object Model imported from model.py with attribute of the path to the saved model
-        # use the predict_from_path function to perform the prediction on uploaded image
+
+        # Create the object Model imported from model.py with attribute of
+        # the path to the saved model
+        # use the predict_from_path function to perform the prediction
+        # on uploaded image
         cnn_model = model.Model("/brain_scan/final_model.h5")
-        pred = cnn_model.predict_from_path("/brain_scan/static/uploads/"+filename)
-        
+        pred = cnn_model.predict_from_path("/brain_scan/static/uploads/"
+                                           + filename)
+
         flash('The prediction is ' + pred)
         return render_template('upload.html', filename=filename)
     else:
