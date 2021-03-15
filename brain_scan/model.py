@@ -22,17 +22,30 @@ except ValueError:  # Already removed
 
 class Model:
     """
-    A class .....
+    A class that provides an API for user interaction with the tensorflow model.
     ---------
-    Attribute:
-    path : str
-        a string that is the path to where the image is located
+    Attributes:
+        IMAGE_SIZE : int
+            static constant representing the width and height images will be resized to during pre-processing
+            and prediction
+        model_path : str
+            optional parameter, filepath to existing .h5 model to be used
+        rand_seed : int
+            optional parameter, sets the seed for random number generation in
+            both numpy and tensorflow to rand_seed
     ---------
     Methods:
-            read_from_path()
-                read the image from the given path
-            process()
-                change the image to grayscale and resize the image
+            load_data(directory_list)
+                Loads data from each directory in directory list, converting each image into a single channel
+                positive globally standardized image array of shape (240, 240). Returns shuffled image arrays and
+                labels.
+            train(X, y, num_epochs=10)
+                Builds, compiles, and trains the neural network, saving tensorboard logs as well as the best model within
+                sub-directories in the working directory.
+            predict_from_path(filepath)
+                After training the model or loading in one that was already made, this function will run the image
+                contained at filepath through our model and output a prediction as a string. If a model has not been
+                trained or loaded, a NotImplementedError will be thrown.
     """
 
     IMAGE_SIZE = 240
@@ -82,8 +95,8 @@ class Model:
 
     def train(self, X, y, num_epochs=10):
         """
-        Builds, compiles, and trains the neural network, saving tensorboard logs as well as the best model in the
-        working directory.
+        Builds, compiles, and trains the neural network, saving tensorboard logs as well as the best model within
+        sub-directories in the working directory.
 
         :param X: A numpy array of image arrays
         :param y: A numpy array of labels for each image, sharing indices with X
@@ -134,21 +147,22 @@ class Model:
     def predict_from_path(self, filepath):
         """
         After training the model or loading in one that was already made, this function will run the image
-        contained at filepath through our model and output a prediction as a string.
+        contained at filepath through our model and output a prediction as a string. If a model has not been
+        trained or loaded, a NotImplementedError will be thrown.
 
         :param filepath: Filepath to image for prediction
         :return: Prediction of image containing a tumor as a string
         """
-        image = cv2.imread(str(root) + filepath)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        image = cv2.resize(image, dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE), interpolation=cv2.INTER_CUBIC)
-        test_array = np.array(image).astype('float32')
-        test_array = self.__scale_and_normalize(test_array)
-        test_array = np.expand_dims(test_array, axis=0)
-        test_array = np.expand_dims(test_array, axis=3)
-        predictions = self.network.predict(test_array, batch_size=32)
+        if self.network is None:
+            raise NotImplementedError("No model currently loaded")
 
-        if predictions[0][0] == 1:
+        test_image = self.__read_and_resize(str(root) + filepath)
+        test_image = self.__scale_and_normalize(test_image)
+        test_image = np.expand_dims(test_image, axis=0)
+        test_image = np.expand_dims(test_image, axis=3)
+        prediction = (self.network.predict(test_image) > 0.5).astype("int32")
+
+        if prediction == 1:
             return 'Yes'
         return 'No'
 
@@ -163,12 +177,9 @@ class Model:
         :return image: Single channel grayscale image array of shape (IMAGE_SIZE, IMAGE_SIZE)
         :return label: Binary value with 1 indicting 'yes' and 0 indicating 'no'
         """
-        image = cv2.imread(directory + '/' + filename)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        image = cv2.resize(image, dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE), interpolation=cv2.INTER_CUBIC)
+        image = self.__read_and_resize(directory + '/' + filename)
         if directory[-3:] == 'yes':
             return image, 1
-        # else directory[-3] == 'no'
         return image, 0
 
     def __scale_and_normalize(self, image_array):
@@ -186,10 +197,17 @@ class Model:
         arr = (arr + 1) / 2
         return arr
 
+    def __read_and_resize(self,  filepath):
+        """
+        Reads image from filepath, convert to single channel grayscale image,
+        resize to shape (IMAGE_SIZE, IMAGE_SIZE), and returns it.
 
-"""
-Example for prediction: 
+        :param filepath: valid filepath to image file
+        :return image: Processed image
+        """
+        image = cv2.imread(filepath)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image = cv2.resize(image, dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE), interpolation=cv2.INTER_CUBIC)
+        return image
 
-model = Model("/brain_scan/final_model.h5")
-print(model.predict_from_path("/brain_scan/static/uploads/Y54.JPG"))
-"""
+
