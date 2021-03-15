@@ -8,7 +8,7 @@ The Brain Scan Classification is a machine learning project that classifies 2D b
 Our website allows users to upload their own (.jpg, jpeg, or .png) photos into the model, and get a prediction result. 
 <img src="/brain_scan/static/img/home.PNG">
 
-## How It Works
+## Website Interaction
 1. Navigate to the 'Do I Have A Tumor?' website: http://doihaveatumor.com/
 2. Click the 'Choose File' button, and select a 2D .jpg / .jpeg / .png brain scan from your file explorer
 3. Click the 'Submit' button, and wait for the results to display at the top of the page
@@ -47,35 +47,61 @@ Below are two sample images from the data set:
 | MRI Scan without a Tumor  | MRI Scan with a Tumor (notated with arrow)|
 | :---: | :---: |
 | <img src = "/brain_scan/static/img/no.jpeg" alt = "No_tumor" width ="300" >  | <img src = "/brain_scan/static/img/yes.jpg" alt = "Yes_tumor" width = "280" >  |
-## How to Train Our Model
-If you'd like to fiddle with any of the inner-workings of our model, all code used in its 
-creation can be found in the 'notebooks' directory under the filename 
-'brain_tumor_classification_FINAL.ipynb'. To ensure that the notebook can identify the location
-of the dataset, please specify its location in cell 4.
+## Copying our Repository
+To copy our repository to a local directory on your machine, execute the bash commands:
+```
+git init
+git clone https://github.com/aaliyahfiala42/DATA515-Brain-Scan-Classification.git
+```
+Afterwards, navigate to the local repository and run the command:
+```
+pip install -e
+```
+All of our work is flake8 compliant - to run our testing suite, run the command:
+```
+python3 unittest -m
+```
 
-## How to Use the Model (from GitHub)
-To use our model in your own code, use the following function:
+## How to Use model.py
+After cloning our repository, import our model into your own python file with the import statement:
+```
+from brain_scan import model.Model()
+```
+A previously constructed model can be loaded by passing in a valid .h5 model's filepath into the constructor
+like so:
+```
+mod = model.Model(filepath)
+```
+Or by training the model on the <a href="https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection" style="color:black" >data set</a>.
+To ensure the model can identify the data, it is important to retain the file structure from the kaggle site's download
+(i.e. 'yes' images should be kept in the 'yes' directory, 'no' images should be kept in the 'no' directory).
+
+
+After downloading the data, your file structure should look like this:
 
 ```
-import tensorflow as tf
-import cv2
-import numpy as np
-
-def prediction(input_filepath):
-    model = tf.keras.models.load_model(final_model.h5')
-    image = cv2.imread(input_filepath)
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    # Reshape the image so that it fits the model required input format
-    image = cv2.resize(image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
-    test_array = np.array(image)
-    reshape_array = test_array.reshape(-1, 240, 240, 1)
-    predictions = model.predict(reshape_array, batch_size=32)
-
-    if predictions[0][0] == 1:
-        return ('Yes')
-    else:
-        return ("No")
+.
+├── data
+│   └── brain_tumor_dataset
+│       ├── no
+│       │   ├── 1\ no.jpeg
+│       │   ├── ...
+│       │   └── no\ 99.jpg
+│       └── yes
+│           ├── Y1.jpg
+│           ├── ...
+│           └── Y259.JPG
+└── your_file.py
+```
+Now, you can create the model:
+```
+mod = model.Model()
+X, y = mod.load_data(['data/brain_tumor_dataset/no', 'data/brain_tumor_dataset/yes'])
+mod.train(X, y)
+```
+After training, you can run predictions by inputting an image's filepath:
+```
+print(mod.predict_from_path('data/brain_tumor_dataset/yes/Y1.jpg'))
 ```
 ## Limitations
 Our initial goal was to build a model that trained on 3D MRI images and thus get a more complete view of the brain/possible tumors.
@@ -86,7 +112,7 @@ necessary to implement this type of model.
 A gif of a all 155 slices of a 3D MRI scan is shown below:
 <br />
 <p align="center">
-<img src=http://aaliyahhanni.pythonanywhere.com/static/img/MRI.gif  width="300"/>
+<img src=/brain_scan/static/img/MRI.gif  width="300"/>
 </p>
 
 ## File Structure
