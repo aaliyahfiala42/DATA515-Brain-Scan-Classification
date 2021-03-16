@@ -29,4 +29,4 @@ class TestUploadImage(unittest.TestCase):
     
         response = self.client.post('/uploads')
 
-        self.assertTrue('302 FOUND' == str(response.status))
+        self.assertFalse('302 FOUND' == str(response.status))
