@@ -28,9 +28,9 @@ class TestUploadImage(unittest.TestCase):
     def test_upload_image_success(self):
         data = dict(
                 file=(BytesIO(b'This is a test'), "test.jpeg"),
-                    )
-        
-        response = self.client.post('/',content_type='image/gif',
-                                  follow_redirects=True)
-        
+        )
+    
+        response = self.client.post('/', content_type='image/gif',
+                                    data=data, follow_redirects=True)
+    
         assert b'The prediction is ' in response.data
