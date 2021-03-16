@@ -27,7 +27,7 @@ class TestUploadImage(unittest.TestCase):
 
     def test_upload_image_empty(self):
         
-        response = self.client.pst('/',content_type='image/gif',
+        response = self.client.post('/',content_type='image/gif',
                                   follow_redirects=True)
         
         assert b'The prediction is ' in response.data
