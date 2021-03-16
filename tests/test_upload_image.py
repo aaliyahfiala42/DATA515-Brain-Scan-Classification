@@ -25,7 +25,10 @@ class TestUploadImage(unittest.TestCase):
 
         assert b'No file part' in response.data
 
-    def test_upload_image_empty(self):
+    def test_upload_image_success(self):
+        data = dict(
+                file=(BytesIO(b'This is a test'), "test.jpeg"),
+                    )
         
         response = self.client.post('/',content_type='image/gif',
                                   follow_redirects=True)
