@@ -12,7 +12,8 @@ REQUIREMENTS = ['Flask',
                 'urllib3',
                 'webencodings',
                 'Werkzeug',
-                'opencv-python']
+                'opencv-python-headless',
+                'scikit-learn']
 
 
 setuptools.setup(
