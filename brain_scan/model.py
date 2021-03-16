@@ -8,6 +8,7 @@ from os import listdir
 import sys
 from sklearn.utils import shuffle
 from pathlib import Path
+from datetime import datetime
 
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
@@ -121,6 +122,11 @@ class Model:
         X_train, X_test, y_train, y_test = \
             train_test_split(X, y, test_size=.2, shuffle=True, stratify=y)
 
+        datagen = keras.preprocessing.image.ImageDataGenerator(rotation_range=30,
+                                                               horizontal_flip=True,
+                                                               vertical_flip=True,
+                                                               validation_split=.2)
+
         model = keras.models.Sequential([
             keras.Input(shape=(240, 240, 1)),
             keras.layers.Conv2D(32, 3, strides=(1, 1), activation='relu',
@@ -139,9 +145,28 @@ class Model:
 
         opt = keras.optimizers.Adam(learning_rate=0.01)
         model.compile(
-                    loss='binary_crossentropy',
-                    optimizer=opt,
-                    metrics=['binary_accuracy'])
+            loss='binary_crossentropy',
+            optimizer=opt,
+            metrics=['binary_accuracy'])
+
+        logdir = "logs/scalars/" + datetime.now().strftime("%Y%m%d-%H%M%S")
+        model_path = 'models/best_classifier.h5'
+
+        # Save tensorboard callback logs for each training epoch
+        tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
+
+        # Save best model according to its validation set binary accuracy
+        model_checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
+            filepath=model_path,
+            monitor='val_binary_accuracy',
+            mode='max',
+            save_best_only=True)
+
+        # Fit model using ImageDataGenerator on training data, unaltered testing data
+        model.fit(datagen.flow(X_train, y_train, batch_size=32),
+                  epochs=100, shuffle=True,
+                  validation_data=(X_test, y_test),
+                  callbacks=[tensorboard_callback, model_checkpoint_callback])
 
         self.network = keras.models.load_model('models/best_classifier.h5')
 
@@ -203,7 +228,7 @@ class Model:
         arr = (arr + 1) / 2
         return arr
 
-    def __read_and_resize(self,  filepath):
+    def __read_and_resize(self, filepath):
         """
         Reads image from filepath, convert to single channel grayscale image,
         resize to shape (IMAGE_SIZE, IMAGE_SIZE), and returns it.
@@ -214,7 +239,7 @@ class Model:
         image = cv2.imread(filepath)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         image = cv2.resize(
-                            image,
-                            dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE),
-                            interpolation=cv2.INTER_CUBIC)
+            image,
+            dsize=(self.IMAGE_SIZE, self.IMAGE_SIZE),
+            interpolation=cv2.INTER_CUBIC)
         return image
