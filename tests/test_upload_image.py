@@ -24,9 +24,3 @@ class TestUploadImage(unittest.TestCase):
                                     follow_redirects=True)
 
         assert b'No file part' in response.data
-
-    def test_upload_image_success(self):
-
-        response = self.client.post('/uploads')
-
-        self.assertFalse('302 FOUND' == str(response.status))
