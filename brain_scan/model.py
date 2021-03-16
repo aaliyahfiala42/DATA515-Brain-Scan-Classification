@@ -122,10 +122,11 @@ class Model:
         X_train, X_test, y_train, y_test = \
             train_test_split(X, y, test_size=.2, shuffle=True, stratify=y)
 
-        datagen = keras.preprocessing.image.ImageDataGenerator(rotation_range=30,
-                                                               horizontal_flip=True,
-                                                               vertical_flip=True,
-                                                               validation_split=.2)
+        datagen = \
+            keras.preprocessing.image.ImageDataGenerator(rotation_range=30,
+                                                         horizontal_flip=True,
+                                                         vertical_flip=True,
+                                                         validation_split=.2)
 
         model = keras.models.Sequential([
             keras.Input(shape=(240, 240, 1)),
@@ -162,7 +163,8 @@ class Model:
             mode='max',
             save_best_only=True)
 
-        # Fit model using ImageDataGenerator on training data, unaltered testing data
+        # Fit model using ImageDataGenerator on training data,
+        # unaltered testing data
         model.fit(datagen.flow(X_train, y_train, batch_size=32),
                   epochs=100, shuffle=True,
                   validation_data=(X_test, y_test),
