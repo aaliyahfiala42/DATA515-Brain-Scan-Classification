@@ -24,3 +24,9 @@ class TestUploadImage(unittest.TestCase):
                                     follow_redirects=True)
 
         assert b'No file part' in response.data
+
+    def test_upload_image_empty(self):
+        
+        rv = client.get('/')
+        
+        assert b'No image selected for uploading' in rv.data
