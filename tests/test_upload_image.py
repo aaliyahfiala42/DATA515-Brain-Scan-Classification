@@ -17,7 +17,7 @@ class TestUploadImage(unittest.TestCase):
                                     data=data, follow_redirects=True)
 
         assert response.status_code == 200
-        assert b'The prediction is ' + pred in response.data
+        assert b'The prediction is ' + app.pred in response.data
 
     def test_upload_image_fail(self):
 
