@@ -175,4 +175,4 @@ closed for readability purposes:
     └── test_upload_image.py
 ```
 ## Authors 
-Aaliyah Hänni, Jordan Fields, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
+Jordan Fields, Aaliyah Hänni, Vanessa Hsu, Trevor Nims, Alyson Suchodolski, Sabrina Wang
