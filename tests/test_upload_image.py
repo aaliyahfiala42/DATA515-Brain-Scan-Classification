@@ -30,7 +30,7 @@ class TestUploadImage(unittest.TestCase):
                 file=(BytesIO(b'This is a test'), "test.jpeg"),
         )
     
-        response = self.client.post('/', content_type='image/gif',
+        response = self.client.post('/uploads', content_type='image/gif',
                                     data=data, follow_redirects=True)
     
         assert b'The prediction is ' in response.data
