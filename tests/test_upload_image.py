@@ -27,6 +27,6 @@ class TestUploadImage(unittest.TestCase):
 
     def test_upload_image_empty(self):
         
-        rv = client.get('/')
+        rv = self.client.get('/')
         
         assert b'No image selected for uploading' in rv.data
