@@ -16,3 +16,10 @@ class TestUploadImage(unittest.TestCase):
                                         follow_redirects=True)
             self.assertTrue('The prediction is'
                             in str(response.data))
+    
+    def test_upload_image_fail(self):
+
+        response = self.client.post('/', content_type='image/gf',
+                                    follow_redirects=True)
+
+        assert b'No file part' in response.data
