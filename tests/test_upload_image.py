@@ -27,7 +27,8 @@ class TestUploadImage(unittest.TestCase):
 
     def test_upload_image_good_file(self):
         im = open('tests/mock_data/yes.jpg', 'rb')
-        response = self.client.post('/', data=im, follow_redirects=True)
+        response = self.client.post('/', content_type='multipart/form-data',
+                                    data=im, follow_redirects=True)
         im.close()
         self.assertTrue('!-- Home Page/Upload picture for prediction -->'
                         in str(response.data))
