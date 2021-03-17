@@ -17,8 +17,9 @@ class TestUploadImage(unittest.TestCase):
         that checks for the existence of file and that it has a 
         valid name.
         '''
-        data = dict(
-                file=(BytesIO(b'This is a test'), "test.jpeg"),
-                    )
-        response = self.client.post('/', content_type='image/gif',
-                                    data=data, follow_redirects=True)
+
+        with open('tests/mock_data/no.jpg', 'rb') as data:
+            response = self.client.post('/', content_type='multipart/form-data',
+                                        data={'file': data}, follow_redirects=True)
+            self.assertTrue('The prediction is'
+                            in str(response.data))
