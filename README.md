@@ -126,13 +126,9 @@ closed for readability purposes:
 ├── README.md
 ├── brain_scan
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-37.pyc
-│   │   ├── prediction.cpython-37.pyc
-│   │   └── prediction.cpython-38.pyc
 │   ├── app.py
 │   ├── final_model.h5
-│   ├── prediction.py
+│   ├── model.py
 │   ├── static
 │   │   ├── img
 │   │   ├── style
@@ -150,26 +146,49 @@ closed for readability purposes:
 │   └── test_images
 │       ├── noreal
 │       └── yesreal
+├── brain_scan.egg-info
+│   ├── PKG-INFO
+│   ├── SOURCES.txt
+│   ├── dependency_links.txt
+│   ├── requires.txt
+│   └── top_level.txt
+├── dist
+│   └── brain_scan-0.1.0-py3.8.egg
 ├── docs
 │   ├── Component\ Specification.pdf
+│   ├── Final\ Presentation.pptx
 │   ├── Functional\ Specification.pdf
 │   └── Technology\ Review\ Presentation.pptx
 ├── examples
 │   └── Project\ Examples.pdf
+├── models
+│   ├── best_classifier.h5
+│   └── readme
 ├── notebooks
 │   ├── brain_tumor_classification_FINAL.ipynb
+│   ├── logs
 │   └── models
 │       └── best_classifier.h5
 ├── requirements.txt
 ├── setup.py
 └── tests
     ├── __init__.py
+    ├── mock_data
+    │   ├── no.jpg
+    │   └── yes.jpg
+    ├── mock_model.h5
     ├── test_about_page.py
     ├── test_allowed_file.py
     ├── test_data_page.py
     ├── test_display_image.py
     ├── test_future_page.py
-    ├── test_prediction.py
+    ├── test_model_init.py
+    ├── test_model_load_data.py
+    ├── test_model_pre_process_file.py
+    ├── test_model_predict_from_path.py
+    ├── test_model_read_and_resize.py
+    ├── test_model_scale_and_normalize.py
+    ├── test_model_train.py
     ├── test_team_page.py
     ├── test_upload_form.py
     └── test_upload_image.py
