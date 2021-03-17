@@ -146,14 +146,6 @@ closed for readability purposes:
 │   └── test_images
 │       ├── noreal
 │       └── yesreal
-├── brain_scan.egg-info
-│   ├── PKG-INFO
-│   ├── SOURCES.txt
-│   ├── dependency_links.txt
-│   ├── requires.txt
-│   └── top_level.txt
-├── dist
-│   └── brain_scan-0.1.0-py3.8.egg
 ├── docs
 │   ├── Component\ Specification.pdf
 │   ├── Final\ Presentation.pptx
