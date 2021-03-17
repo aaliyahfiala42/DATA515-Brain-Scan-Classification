@@ -25,8 +25,9 @@ class TestUploadImage(unittest.TestCase):
         assert b'No file part' in response.data
         
     def test_upload_image_incorrect_type(self):
-
-        response = self.client.post('/', content_type='text/html',
-                                    follow_redirects=True)
-
-        assert b'Allowed image types are -> png, jpg, jpeg' in response.data
+        with open('tests/mock_data/text.txt', 'rb') as data:
+            response = self.client.post('/',
+                                        content_type='multipart/form-data',
+                                        data={'file': data},
+                                        follow_redirects=True)
+            self.assertTrue('Allowed image types are -> png, jpg, jpeg' in str(response.data))
