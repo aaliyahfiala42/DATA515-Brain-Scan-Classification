@@ -16,11 +16,19 @@ class TestUploadImage(unittest.TestCase):
         response = self.client.post('/', content_type='image/gif',
                                     data=data, follow_redirects=True)
 
-        assert response.status_code == 200
+        self.assertTrue(response.status_code == 200)
 
     def test_upload_image_fail(self):
 
-        response = self.client.post('/', content_type='image/gf',
+        response = self.client.post('/', content_type='image/gif',
                                     follow_redirects=True)
 
-        assert b'No file part' in response.data
+        self.assertTrue(b'No file part' in response.data)
+
+    def test_upload_image_good_file(self):
+        im = open('tests/mock_data/yes.jpg', 'rb')
+        response = self.client.post('/', data=im, follow_redirects=True)
+        im.close()
+        self.assertTrue('!-- Home Page/Upload picture for prediction -->'
+                        in str(response.data))
+
