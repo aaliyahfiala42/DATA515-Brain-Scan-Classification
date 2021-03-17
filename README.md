@@ -48,9 +48,8 @@ Below are two sample images from the data set:
 | :---: | :---: |
 | <img src = "/brain_scan/static/img/no.jpeg" alt = "No_tumor" width ="300" >  | <img src = "/brain_scan/static/img/yes.jpg" alt = "Yes_tumor" width = "280" >  |
 ## Copying our Repository
-To copy our repository to a local directory on your machine, execute the bash commands:
+To copy our repository to a local directory on your machine, execute the bash command:
 ```
-git init
 git clone https://github.com/aaliyahfiala42/DATA515-Brain-Scan-Classification.git
 ```
 Afterwards, navigate to the local repository and run the command:
@@ -72,12 +71,8 @@ like so:
 ```
 mod = model.Model(filepath)
 ```
-Or by training the model on the <a href="https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection" style="color:black" >data set</a>.
-To ensure the model can identify the data, it is important to retain the file structure from the kaggle site's download
-(i.e. 'yes' images should be kept in the 'yes' directory, 'no' images should be kept in the 'no' directory).
-
-
-After downloading the data, your file structure should look like this:
+Or by training the model on the built-in <a href="https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection" style="color:black" >data set</a>.
+After creating your own .py file to use our model, your directory structure should look like this:
 
 ```
 .
@@ -124,6 +119,8 @@ closed for readability purposes:
 ├── Dockerfile
 ├── LICENSE.md
 ├── README.md
+├── requirements.txt
+├── setup.py
 ├── brain_scan
 │   ├── __init__.py
 │   ├── app.py
@@ -161,8 +158,10 @@ closed for readability purposes:
 │   ├── logs
 │   └── models
 │       └── best_classifier.h5
-├── requirements.txt
-├── setup.py
+├── data
+│   └── brain_tumor_dataset
+│       ├── no
+│       └── yes
 └── tests
     ├── __init__.py
     ├── mock_data
