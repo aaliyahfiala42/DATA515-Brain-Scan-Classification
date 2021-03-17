@@ -31,4 +31,3 @@ class TestUploadImage(unittest.TestCase):
         im.close()
         self.assertTrue('!-- Home Page/Upload picture for prediction -->'
                         in str(response.data))
-
