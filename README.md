@@ -58,7 +58,7 @@ pip install -e .
 ```
 All of our work is flake8 compliant - to run our testing suite, run the command:
 ```
-python3 unittest -m discover tests
+python -m unittest
 ```
 
 ## How to Use model.py
